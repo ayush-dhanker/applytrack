@@ -2,13 +2,22 @@
   "name": "applytrack",
   "version": "0.0.0",
   "private": true,
-  "workspaces": ["packages/*", "apps/*"],
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "scripts": {
-    "build": "tsc -b",
-    "clean": "tsc -b --clean"
-  },
+  "build": "tsc -b",
+  "clean": "tsc -b --clean",
+  "dev": "concurrently -n shared,api -c blue,green \"npm run dev -w @applytrack/shared\" \"npm run dev -w @applytrack/api\""
+},
   "devDependencies": {
-    "typescript": "^5.6.3",
-    "concurrently": "^9.1.0"
+    "@types/node": "^24.1.0",
+    "concurrently": "^9.1.0",
+    "typescript": "^5.6.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "fsevents@2.3.3": true
   }
 }
