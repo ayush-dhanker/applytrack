@@ -6,6 +6,8 @@ const envSchema = z.object({
   PORT: z.coerce.number().int().positive().default(4000),
   MONGODB_URI: z.string().startsWith('mongodb'),
   CORS_ORIGIN: z.string().default('http://localhost:5173'),
+  JWT_ACCESS_SECRET: z.string().min(32),
+  JWT_REFRESH_SECRET: z.string().min(32),
 });
 
 const parsed = envSchema.safeParse(process.env);
