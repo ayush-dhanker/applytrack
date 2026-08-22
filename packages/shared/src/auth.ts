@@ -27,3 +27,5 @@ export type PublicUser = {
   name: string;
   email: string;
 };
+export type RegisterFormValues = z.input<typeof registerSchema>;
+export type LoginFormValues = z.input<typeof loginSchema>;
